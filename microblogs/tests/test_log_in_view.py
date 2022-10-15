@@ -3,10 +3,10 @@ from django.test import TestCase
 from microblogs.forms import LogInForm
 from django.urls import reverse
 from microblogs.models import User
-from .helpers import LoginTester
+from .helpers import LogInTester
 from django.contrib import messages
 
-class LogInViewTestCase(TestCase, LoginTester):
+class LogInViewTestCase(TestCase, LogInTester):
     def setUp(self):
         self.url = reverse('log_in')
         self.user = User.objects.create_user(

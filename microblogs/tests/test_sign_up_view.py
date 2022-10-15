@@ -4,9 +4,9 @@ from microblogs.forms import SignUpForm
 from microblogs.models import User
 from django.urls import reverse
 from django.contrib.auth.hashers import check_password
-from .helpers import LoginTester
+from .helpers import LogInTester
 
-class SignupViewTestCase(TestCase, LoginTester):
+class SignupViewTestCase(TestCase, LogInTester):
 
     def setUp(self):
         self.url = reverse('sign_up')
