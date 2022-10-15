@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <title>Sign Up</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Sign up</h1>
     <form action="{% url 'sign_up' %}" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Sign up">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="submit" value="Sign up" />
     </form>
-</body>
+  </body>
 </html>
