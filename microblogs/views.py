@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from microblogs.models import User
+from microblogs.models import User, Post
 from microblogs.forms import LogInForm, PostForm, SignUpForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -12,14 +12,7 @@ def feed(request):
     return render(request, "feed.html", {"form": form})
 
 def sign_up(request):
-    if request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect("feed")
-    else:
-        form = SignUpForm()
+    form = SignUpForm()
     return render(request, "sign_up.html", {"form": form})
 
 def log_in(request):
@@ -47,3 +40,14 @@ def user_list(request):
 def show_user(request, user_id):
     user = User.objects.get(pk=user_id)
     return render(request, "show_user.html", {"user": user})
+
+def new_post(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+
+        if request.user and form.is_valid():
+            post = form.save(commit=False) 
+            post.author = request.user
+            post.save()
+
+        return redirect("feed")

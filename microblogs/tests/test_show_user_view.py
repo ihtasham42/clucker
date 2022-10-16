@@ -25,7 +25,7 @@ class ShowUserViewTestCase(TestCase):
     def test_show_non_existent_user(self):
         url = reverse("show_user", args=["10"])
         try:
-            request = self.client.get(url)
+            self.client.get(url)
             self.fail()
         except (ObjectDoesNotExist):
             pass

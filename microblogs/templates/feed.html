@@ -7,7 +7,7 @@
     <h1>Feed under construction!</h1>
     <div>This page will contain a user-specific feed of clucks.</div>
     <h4>Create a Cluck</h4>
-    <form action="{% url 'feed' %}" method="post">
+    <form action="{% url 'new_post' %}" method="post">
       {% csrf_token %} {{ form.as_p }}
       <input type="submit" value="Create post" />
     </form>
