@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Feed</title>
-  </head>
-  <body>
-    <h1>Feed under construction!</h1>
-    <div>This page will contain a user-specific feed of clucks.</div>
-    <h4>Create a Cluck</h4>
-    <form action="{% url 'new_post' %}" method="post">
-      {% csrf_token %} {{ form.as_p }}
-      <input type="submit" value="Create post" />
-    </form>
-  </body>
-</html>
+{% extends 'base.html' %} {% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 offset-md-3">
+      <h1>Feed under construction!</h1>
+      <div>This page will contain a user-specific feed of clucks.</div>
+      <h4>Create a Cluck</h4>
+      <form action="{% url 'new_post' %}" method="post">
+        {% csrf_token %} 
+        {% include 'partials/bootstrap_form.html' with form=form %}
+        <input type="submit" value="Create post" class="btn btn-primary"/>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
