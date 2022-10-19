@@ -3,17 +3,11 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-6 offset-md-3">
-      <h1>{{ user.username }}'s profile</h1>
-      <h5>{{user.first_name}} {{user.last_name}}</h5>
-      <div class="card p-3">
-        <h4>Bio</h4>
-        <div>{{user.bio}}</div>
-      </div>
-
+      {% include 'partials/user_profile.html' %}
     </div>
   </div>
 </div>
 {% endblock%}
 {% block title %}
-{{user.username}}
+{{profile_user.username}}
 {% endblock %}

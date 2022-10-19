@@ -4,10 +4,13 @@
   <div class="row">
     <div class="col-sm-12 col-md-6 offset-md-3">
       <h1>Users</h1>
-      <table class="table">
+      <table class="table w-auto">
         <tbody>
           {% for user in users %}
           <tr>
+            <td>
+              <img height="40" width="40" src={{user.gravatar}}>
+            </td>
             <td>
               <a href="{% url 'show_user' user.pk %}">{{user.username}}</a>
             </td>

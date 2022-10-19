@@ -45,8 +45,8 @@ def user_list(request):
     return render(request, "user_list.html", {"users": users})
 
 def show_user(request, user_id):
-    user = User.objects.get(pk=user_id)
-    return render(request, "show_user.html", {"user": user})
+    profile_user = User.objects.get(pk=user_id)
+    return render(request, "show_user.html", {"profile_user": profile_user})
 
 def new_post(request):
     if request.method == "POST":
