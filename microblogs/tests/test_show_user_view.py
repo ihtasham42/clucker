@@ -19,7 +19,7 @@ class ShowUserViewTestCase(TestCase):
         request = self.client.get(url)
         self.assertEqual(request.status_code, 200)
         self.assertTemplateUsed(request, "show_user.html")
-        self.assertEqual(self.user.username, request.context["user"].username)
+        self.assertEqual(self.user.username, request.context["profile_user"].username)
 
 
     def test_show_non_existent_user(self):
