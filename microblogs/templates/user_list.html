@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Clucker</title>
-  </head>
-  <body>
-    <h1>Users</h1>
-    {% for user in users %}
-    <div>
-      <a href="{% url 'show_user' user.pk %}">{{user.username}}</a>
-    </div>
+{% extends 'base_content.html' %} 
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 offset-md-3">
+      <h1>Users</h1>
+      <table class="table">
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <td>
+              <a href="{% url 'show_user' user.pk %}">{{user.username}}</a>
+            </td>
+            
+          </tr>
+          {% endfor %}
+        </tbody>
 
-    {% endfor %}
-  </body>
-</html>
+      </table>
+  
+      
+    </div>
+  </div>
+</div>
+{% endblock%}
